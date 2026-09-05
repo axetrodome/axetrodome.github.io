@@ -1,0 +1,179 @@
+---
+import '../../styles/global.css';
+
+const stack = [
+  {
+    label: 'Mobile',
+    items: ['React Native', 'Expo', 'Expo Router', 'TypeScript'],
+  },
+  {
+    label: 'UI',
+    items: ['NativeWind (Tailwind for RN)', 'Custom reusable components'],
+  },
+  {
+    label: 'State & forms',
+    items: ['Zustand', 'React Hook Form', 'Zod validation'],
+  },
+  {
+    label: 'Backend',
+    items: ['Supabase (Postgres)', 'Row Level Security', 'Supabase Storage', 'Edge Functions'],
+  },
+  {
+    label: 'Observability',
+    items: ['Sentry error tracking', 'PostHog product analytics'],
+  },
+];
+
+const highlights = [
+  {
+    title: 'Row Level Security by design',
+    body: 'Every table is protected with Postgres RLS policies scoped to organizer/member roles — members only ever see Paluwagans they belong to, contributions they own, or data their organizer explicitly manages.',
+  },
+  {
+    title: 'Record-keeping, not a wallet',
+    body: 'The app deliberately never touches real money. It only records contributions, payouts, and proof of payment reported by users — no GCash/Maya integration, no fund custody.',
+  },
+  {
+    title: 'Partial payments & payout ordering',
+    body: 'Contribution status (unpaid / partial / paid / overdue) and payout schedules are computed from explicit business rules instead of naive multiplication, so partial payments and skipped payouts stay accurate.',
+  },
+  {
+    title: 'Typed end-to-end',
+    body: 'Zod schemas validate every form input client-side, with matching constraints enforced at the database level so bad data can\u2019t sneak in through a direct API call.',
+  },
+];
+
+const screenshots = [
+  { src: '/images/projects/paluwagan/dashboard.png', alt: 'Dashboard showing members, contributions collected, and next payout', caption: 'Dashboard' },
+  { src: '/images/projects/paluwagan/groups.png', alt: 'List of active and archived Paluwagan groups', caption: 'Groups list (active / archive)' },
+  { src: '/images/projects/paluwagan/paluwagan-detail.png', alt: 'Paluwagan detail screen with group overview', caption: 'Paluwagan overview' },
+  { src: '/images/projects/paluwagan/contributions.png', alt: 'Contribution periods with paid, partial, and unpaid status', caption: 'Contribution tracking' },
+  { src: '/images/projects/paluwagan/add-member.png', alt: 'Form to add a new member to a Paluwagan', caption: 'Add member' },
+  { src: '/images/projects/paluwagan/members-actions.png', alt: 'Member list with swipe actions to edit, remove, or toggle active state', caption: 'Member management (swipe actions)' },
+  { src: '/images/projects/paluwagan/payouts.png', alt: 'Payout schedule with completed and scheduled payouts', caption: 'Payout schedule' },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Paluwagan Manager \u2014 a React Native + Expo + Supabase app for tracking informal Filipino group savings, built by Axel Mhar Valdepe\u00f1a."
+    />
+    <title>Paluwagan Manager \u2014 Project Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/images/logo.png" />
+  </head>
+
+  <body class="bg-[#f5f3f1] text-slate-900 antialiased">
+    <div class="min-h-screen">
+      <header class="sticky top-0 z-20 border-b border-slate-200 bg-[#f5f3f1]/80 backdrop-blur-md">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <nav class="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
+            <a href="/" class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-violet-600 to-indigo-500 text-sm font-bold text-white shadow-lg shadow-violet-200">A</div>
+              <div>
+                <div class="text-lg font-semibold tracking-tight">Axel Mhar Valdepe\u00f1a</div>
+              </div>
+            </a>
+
+            <div class="flex flex-wrap items-center gap-2">
+              <a href="/#top" class="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-violet-500 hover:text-violet-600">\u2190 Back to portfolio</a>
+              <a href="https://github.com/axetrodome/paluwagan" target="_blank" rel="noreferrer" class="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-violet-500 hover:text-violet-600">GitHub</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+          <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-violet-700">
+            <span class="h-2 w-2 rounded-full bg-violet-500"></span>
+            Personal project
+          </div>
+
+          <h1 class="max-w-3xl text-4xl font-black tracking-[-0.05em] text-slate-900 sm:text-5xl">
+            Paluwagan Manager
+          </h1>
+
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            A mobile app for organizing and tracking informal Filipino group savings ("Paluwagan").
+            It's a <strong>record-keeping tool</strong>, not a financial wallet \u2014 it never holds, moves,
+            or processes real money. It just replaces the spreadsheet, notebook, and group chat that
+            organizers usually juggle.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="https://github.com/axetrodome/paluwagan" target="_blank" rel="noreferrer" class="rounded-full bg-violet-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-200 transition hover:bg-violet-700">View source on GitHub</a>
+          </div>
+
+          <div class="mt-10 grid gap-5 md:grid-cols-5">
+            {stack.map((group) => (
+              <div class="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
+                <div class="mb-3 text-sm font-semibold uppercase tracking-[0.15em] text-violet-700">{group.label}</div>
+                <div class="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700">{item}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+          <div class="mb-8">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-violet-700">Engineering highlights</p>
+            <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Details that mattered more than the UI.</h2>
+          </div>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            {highlights.map((item) => (
+              <div class="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900">{item.title}</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-600">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:pb-20">
+          <div class="mb-8">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-violet-700">Screenshots</p>
+            <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">A look at the app.</h2>
+            <p class="mt-2 max-w-2xl text-sm text-slate-500">Captured on an iOS Simulator running a native Expo dev build. Test data shown \u2014 not a real Paluwagan group.</p>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {screenshots.map((shot) => (
+              <figure class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-3 shadow-sm">
+                <img src={shot.src} alt={shot.alt} class="w-full rounded-[1rem] object-cover" loading="lazy" />
+                <figcaption class="px-2 py-3 text-center text-sm font-medium text-slate-600">{shot.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:pb-20">
+          <div class="rounded-[2rem] border border-slate-200 bg-slate-900 px-6 py-10 text-white shadow-lg shadow-slate-300/40 sm:px-8">
+            <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p class="text-sm uppercase tracking-[0.2em] text-violet-300">Want to see more?</p>
+                <h2 class="mt-3 text-2xl font-bold tracking-tight">Check out the code or get in touch about other work.</h2>
+              </div>
+
+              <div class="flex flex-wrap gap-3">
+                <a href="https://github.com/axetrodome/paluwagan" target="_blank" rel="noreferrer" class="rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200">GitHub repo</a>
+                <a href="/#contact" class="rounded-full border border-slate-700 bg-slate-800 px-5 py-3 text-sm font-semibold text-white transition hover:border-slate-500">Contact me</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
